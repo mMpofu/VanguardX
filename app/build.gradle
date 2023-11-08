@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.vanguardx'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.vanguardx"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation "androidx.preference:preference:1.2.1"
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.navigation:navigation-fragment:2.7.5'
+    implementation 'androidx.navigation:navigation-ui:2.7.5'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.room:room-common:2.6.0'
+    testImplementation 'junit:junit:4.13.2'
+
+    //
+    implementation 'com.github.rddewan:UsageStats:1.0.7'
+    implementation 'com.github.rddewan:PackageManagerHelper:1.0.2'
+    //
+    def room_version = "1.1.1"
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+    //
+    implementation 'com.google.android.gms:play-services-ads:22.5.0'
+    //app center
+    def appCenterSdkVersion = '2.5.0'
+    implementation 'com.microsoft.appcenter:appcenter-analytics:5.0.2'
+    implementation "com.microsoft.appcenter:appcenter-crashes:5.0.2"
+
+    // Espresso
+    def androidx_test_espresso = "3.5.1"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-accessibility:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-web:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$androidx_test_espresso"
+
+    // androidx.test
+    def androidx_test = "1.5.0"
+    // Core library
+    androidTestImplementation "androidx.test:core:$androidx_test"
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation "androidx.test:runner:1.5.2"
+    androidTestImplementation "androidx.test:rules:$androidx_test"
+    //androidTestImplementation "androidx.test:monitor:$androidx_test"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test"
+    // Assertions
+    androidTestImplementation "androidx.test.ext:truth:$androidx_test"
+}

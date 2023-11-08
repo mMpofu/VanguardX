@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="AppUsageStatsHome"
+            type="com.techvidvan.parentalcontrol.model.db.entity.AppUsageEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradiantimage">
+
+                <TextView
+                    android:id="@+id/lb_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/hi_there"
+                    android:letterSpacing="0.02"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lb_header_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/most_used_app_lable"
+                    android:textColor="#304FFE"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:letterSpacing="0.02"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb_header" />
+
+                <ImageView
+                    android:id="@+id/img_app_logo"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@{AppUsageStatsHome.app_icon}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb_header_msg" />
+
+                <TextView
+                    android:id="@+id/lb_sec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Time Spend in Seconds : "
+                    android:textColor="#850000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/img_app_logo"
+                    app:layout_constraintTop_toTopOf="@+id/img_app_logo" />
+
+                <TextView
+                    android:id="@+id/txt_total_time_forground_sec"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingStart="10dp"
+                    android:text="@{AppUsageStatsHome.totalAppInForegroundSec}"
+                    android:textColor="#850000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/lb_sec"
+                    app:layout_constraintTop_toTopOf="@+id/img_app_logo"
+                    tools:text="100000" />
+
+                <TextView
+                    android:id="@+id/lb_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Time Spend in Minutes : "
+                    android:textColor="#850000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/img_app_logo"
+                    app:layout_constraintTop_toBottomOf="@+id/lb_sec" />
+
+                <TextView
+                    android:id="@+id/txt_total_time_forground_min"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{AppUsageStatsHome.totalAppInForegroundMin}"
+                    android:textColor="#850000"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/lb_sec"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_total_time_forground_sec"
+                    tools:text="100" />
+
+                <TextView
+                    android:id="@+id/lb_hr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Time Spend in Hours : "
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#850000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/img_app_logo"
+                    app:layout_constraintTop_toBottomOf="@+id/lb_min" />
+
+                <TextView
+                    android:id="@+id/txt_total_time_forground_hr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:paddingStart="10dp"
+                    android:text="@{AppUsageStatsHome.totalAppInForegroundHr}"
+                    android:textColor="#850000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/lb_sec"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_total_time_forground_min"
+                    tools:text="10" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

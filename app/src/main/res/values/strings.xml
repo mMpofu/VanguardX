@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Parental Control</string>
+    <string name="app_id_test">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="app_id">ca-app-pub-4676526311698326~9030516283</string>
+    <string name="banner_ad_unit_id">ca-app-pub-4676526311698326/4819313691</string>
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="title_activity_app_usage_stats">AppUsageStatsActivity</string>
+    <string name="app_usage_stats">App Usage Stats</string>
+    <string name="app_icon_content_description">App Icon</string>
+    <string name="sec">Sec:</string>
+    <string name="min">Min:</string>
+    <string name="hr">Hr:</string>
+    <string name="title_activity_installed_app">InstalledAppActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_app_usage">App Usage</string>
+    <string name="title_installed_app">App Installed</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hi_there">Hi There!</string>
+    <string name="most_used_app_lable">Your most used app of the day.</string>
+    <string name="daily">daily</string>
+    <string name="weekly">weekly</string>
+    <string name="monthly">monthly</string>
+    <string name="yearly">yearly</string>
+    <string name="title_activity_settings">Settings</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="time_spent_in_minutes">Time Spent in Minutes :</string>
+    <string name="time_spent_in_hours">Time Spent in Hours :</string>
+
+</resources>
