@@ -6,7 +6,7 @@
     <data>
         <variable
             name="AppUsageStatsProperty"
-            type="com.techvidvan.parentalcontrol.model.db.entity.AppUsageEntity" />
+            type="com.example.vanguardx.model.db.entity.AppUsageEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -115,7 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Time Spent in Seconds : "
+                    android:text="@string/time_spent_in_seconds"
                     android:textColor="#000000"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/txt_package_name" />

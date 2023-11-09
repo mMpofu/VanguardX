@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.techvidvan.parentalcontrol.ui.home.HomeFragment"
+        android:name="com.example.vanguardx.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -25,13 +25,13 @@
 
     <fragment
         android:id="@+id/navigation_installedApp"
-        android:name="com.techvidvan.parentalcontrol.ui.installedapp.InstalledAppFragment"
+        android:name="com.example.vanguardx.ui.installedapp.InstalledAppFragment"
         android:label="Installed App"
         tools:layout="@layout/fragment_installed_app" />
 
     <fragment
         android:id="@+id/navigation_appusagestats"
-        android:name="com.techvidvan.parentalcontrol.ui.appusage.AppUsageFragment"
+        android:name="com.example.vanguardx.ui.appusage.AppUsageFragment"
         android:label="App Usage"
         tools:layout="@layout/fragment_app_usage" />
 </navigation>

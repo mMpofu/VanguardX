@@ -1,7 +1,5 @@
 package com.example.vanguardx.repository;
 
-import static com.example.vanguardx.BR.AppUsageStatsProperty;
-
 import android.app.Application;
 import android.app.usage.UsageStats;
 import android.content.Context;
@@ -11,9 +9,11 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.dewan.usagestatshelper.AppUsageStatsProperty;
 import com.dewan.usagestatshelper.UsageStatsHelper;
 import com.example.vanguardx.model.db.AppDatabase;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.SortedMap;
