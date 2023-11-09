@@ -6,7 +6,7 @@
     <data>
         <variable
             name="InstalledAppProperty"
-            type="com.techvidvan.parentalcontrol.model.db.entity.InstalledAppEntity" />
+            type="com.example.vanguardx.model.db.entity.InstalledAppEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,15 +64,15 @@
                     android:id="@+id/txt_package_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="3dp"
                     android:text="@{InstalledAppProperty.packageName}"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginStart="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/txt_app_name"
-                    tools:text="com.techvidvan.parentalcontrol" />
+                    tools:text="example.vanguardx" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

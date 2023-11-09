@@ -10,13 +10,22 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.room.Database;
+
+
+
 import com.example.vanguardx.model.db.dao.AppUsageDao;
 import com.example.vanguardx.model.db.entity.AppUsageEntity;
 import com.example.vanguardx.model.db.entity.InstalledAppEntity;
+import com.dewan.usagestatshelper.AppUsageStatsProperty;
+import com.dewan.usagestatshelper.UsageStatsHelper;
+
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.SortedMap;
+
 
 @Database(entities = {AppUsageEntity.class, InstalledAppEntity.class},version = 1,exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
