@@ -8,11 +8,12 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
-import androidx.databinding.library.baseAdapters.BR;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.example.vanguardx.BR;
 
 import java.util.Comparator;
 
@@ -91,7 +92,7 @@ public class AppUsageEntity extends BaseObservable {
 
     public void setTotalAppInForegroundSec(double totalAppInForegroundSec) {
         this.totalAppInForegroundSec = totalAppInForegroundSec;
-        notifyPropertyChanged(com.dewan.parentalcontrol.BR.totalAppInForegroundSec);
+        notifyPropertyChanged(com.example.vanguardx.BR.totalAppInForegroundSec);
     }
 
     @Bindable

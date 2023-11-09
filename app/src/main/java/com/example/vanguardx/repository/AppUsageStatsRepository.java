@@ -11,6 +11,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.dewan.usagestatshelper.UsageStatsHelper;
 import com.example.vanguardx.model.db.AppDatabase;
 
 import java.util.Collections;

@@ -4,6 +4,8 @@ package com.example.vanguardx.appstats;
 import android.app.usage.UsageStats;
 import android.content.Context;
 import android.util.Log;
+
+import com.dewan.usagestatshelper.UsageStatsHelper;
 import com.example.vanguardx.service.UsageService;
 import java.util.Objects;
 import java.util.SortedMap;
