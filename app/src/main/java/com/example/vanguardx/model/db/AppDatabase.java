@@ -61,6 +61,7 @@ public abstract class AppDatabase extends RoomDatabase {
             this.appUsageDao = appDatabase.appUsageDao();
         }
 
+
         @Override
         protected Void doInBackground(Void... voids) {
             try {

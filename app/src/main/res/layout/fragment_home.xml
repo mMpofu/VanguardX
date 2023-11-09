@@ -6,7 +6,7 @@
     <data>
         <variable
             name="AppUsageStatsHome"
-            type="com.techvidvan.parentalcontrol.model.db.entity.AppUsageEntity" />
+            type="com.example.vanguardx.model.db.entity.AppUsageEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="Time Spend in Seconds : "
+                    android:text="@string/time_spend_in_seconds"
                     android:textColor="#850000"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
-                    android:text="Time Spend in Minutes : "
+                    android:text="@string/time_spend_in_minutes"
                     android:textColor="#850000"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -133,7 +133,7 @@
                     android:id="@+id/lb_hr"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Time Spend in Hours : "
+                    android:text="@string/time_spend_in_hours"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
                     android:textColor="#850000"
