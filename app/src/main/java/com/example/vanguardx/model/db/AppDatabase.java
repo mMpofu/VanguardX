@@ -1,8 +1,5 @@
 package com.example.vanguardx.model.db;
 
-
-import static com.example.vanguardx.BR.AppUsageStatsProperty;
-
 import android.app.usage.UsageStats;
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Room;
