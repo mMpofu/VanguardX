@@ -46,5 +46,6 @@
     <string name="time_spend_in_seconds">Time Spend in Seconds :</string>
     <string name="time_spend_in_minutes">Time Spend in Minutes :</string>
     <string name="time_spend_in_hours">Time Spend in Hours :</string>
+    <string name="item">Item</string>
 
 </resources>

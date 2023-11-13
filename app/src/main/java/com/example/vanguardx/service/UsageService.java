@@ -11,19 +11,18 @@ import com.example.vanguardx.receiver.RestartServiceReceiver;
 public class UsageService extends Service {
     private static final String TAG = "UsageService";
     public static boolean isServiceRunning = false;
-    private static String STATUS;
 
     public UsageService() {
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        STATUS  = intent.getStringExtra("STATUS");
+        String STATUS = intent.getStringExtra("STATUS");
         if (STATUS == null || STATUS.equals("START")){
             if (!isServiceRunning){
                 AppUsageStats.getUsageStats(getApplicationContext());
                 isServiceRunning = true;
-                Log.e(TAG, "onStartCommand: " + isServiceRunning );
+                Log.e(TAG, "onStartCommand: " + true);
             }
         }
         else {

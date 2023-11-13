@@ -11,21 +11,26 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.work.impl.utils.PackageManagerHelper;
+
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.dewan.packagemanagerhelper.InstalledAppProperty;
+import com.dewan.packagemanagerhelper.PackageManagerHelper;
 import com.example.vanguardx.R;
 import com.example.vanguardx.adaptor.InstalledAppAdaptor;
+import com.example.vanguardx.databinding.FragmentInstalledAppBinding;
 import com.example.vanguardx.model.db.entity.InstalledAppEntity;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 
+/** @noinspection ALL*/
 public class InstalledAppFragment extends Fragment {
     private static final String TAG = "InstalledAppFragment";
     private View view;

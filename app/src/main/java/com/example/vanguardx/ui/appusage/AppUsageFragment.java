@@ -26,6 +26,8 @@ import com.example.vanguardx.databinding.FragmentAppUsageBinding;
 import com.example.vanguardx.model.db.AppDatabase;
 import com.example.vanguardx.model.db.dao.AppUsageDao;
 import com.example.vanguardx.model.db.entity.AppUsageEntity;
+import com.dewan.usagestatshelper.AppUsageStatsProperty;
+import com.dewan.usagestatshelper.UsageStatsHelper;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ import java.util.Objects;
 import java.util.SortedMap;
 
 
+/** @noinspection deprecation*/
 public class AppUsageFragment extends Fragment {
     private static final String TAG = "AppUsageFragment";
 
@@ -106,20 +109,18 @@ public class AppUsageFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.daily:
-                getAppListByDay();
-                break;
-            case R.id.weekly:
-                getAppListByWeek();
-                break;
-            case R.id.monthly:
-                getAppListByMonth();
-                break;
-            case R.id.yearly:
-                getAppListByYear();
-                break;
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.daily) {
+            getAppListByDay();
+        } else if (itemId == R.id.weekly) {
+            getAppListByWeek();
+        } else if (itemId == R.id.monthly) {
+            getAppListByMonth();
+        } else if (itemId == R.id.yearly) {
+            getAppListByYear();
         }
+
         return false;
     }
 
@@ -217,11 +218,11 @@ public class AppUsageFragment extends Fragment {
         protected Void doInBackground(Void... voids) {
             try {
                 UsageStatsHelper.setPackageManager(context.getPackageManager());
-                SortedMap<Long, UsageStats> mySortedMap = UsageStatsHelper.getForegroundAppWeekly(context);
+                SortedMap mySortedMap = UsageStatsHelper.getForegroundAppWeekly(context);
                 if (!mySortedMap.isEmpty()) {
                     ArrayList<AppUsageStatsProperty> appStatsLists = UsageStatsHelper.getAppUsageStatsList(mySortedMap);
                     //sort array list
-                    Collections.sort(appStatsLists,AppUsageStatsProperty.totalUsageTimeComparator);
+                    appStatsLists.sort(AppUsageStatsProperty.totalUsageTimeComparator);
                     AppUsageStatsProperty property = appStatsLists.get(0);
                     Log.e(TAG, "MAX: " + property.getTotalTimeInForeground());
 

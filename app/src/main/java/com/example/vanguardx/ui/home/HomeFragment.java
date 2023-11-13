@@ -25,6 +25,7 @@ import com.dewan.usagestatshelper.UsageStatsHelper;
 
 import java.text.DecimalFormat;
 
+/** @noinspection ALL*/
 public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
     private static final int USAGE_STATS_PERMISSION = 12345;

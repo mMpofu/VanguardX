@@ -10,6 +10,7 @@ import com.example.vanguardx.ui.appusage.AppUsageFragment;
 import com.example.vanguardx.ui.installedapp.InstalledAppFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,7 +23,6 @@ import com.microsoft.appcenter.crashes.Crashes;
 
 public class DashboardActivity extends AppCompatActivity implements InstalledAppFragment.OnFragmentInteractionListener, AppUsageFragment.OnFragmentInteractionListener {
     private static final String TAG = "DashboardActivity";
-    private String deviceId;
     //private AdView mAdView;
 
     @Override
@@ -31,11 +31,11 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
         setContentView(R.layout.activity_dashboard);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        deviceId = sharedPreferences.getString("device_id","");
+        String deviceId = sharedPreferences.getString("device_id", "");
         if (deviceId.equals("")){
             deviceId = createUniqueID();
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("device_id",deviceId);
+            editor.putString("device_id", deviceId);
             editor.apply();
         }
 
