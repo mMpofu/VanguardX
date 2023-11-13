@@ -17,6 +17,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
 import java.util.UUID;
+
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
@@ -29,6 +30,10 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        AppCenter.start(getApplication(), "{\"a2fdf058-6997-422d-ba70-99a52415e406\"}",
+                Analytics.class, Crashes.class);
+
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String deviceId = sharedPreferences.getString("device_id", "");
@@ -51,6 +56,7 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
 
     }
 
