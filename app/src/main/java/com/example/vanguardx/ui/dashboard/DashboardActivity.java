@@ -5,39 +5,41 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+
 import com.example.vanguardx.R;
 import com.example.vanguardx.ui.appusage.AppUsageFragment;
 import com.example.vanguardx.ui.installedapp.InstalledAppFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.NavigatorProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
-import java.util.UUID;
 
+import java.util.UUID;
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
 
 public class DashboardActivity extends AppCompatActivity implements InstalledAppFragment.OnFragmentInteractionListener, AppUsageFragment.OnFragmentInteractionListener {
     private static final String TAG = "DashboardActivity";
+    private String deviceId;
     //private AdView mAdView;
+
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        AppCenter.start(getApplication(), "{\"a2fdf058-6997-422d-ba70-99a52415e406\"}",
-                Analytics.class, Crashes.class);
-
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String deviceId = sharedPreferences.getString("device_id", "");
-        if (deviceId.equals("")){
+        deviceId = sharedPreferences.getString("device_id", "");
+        if (deviceId.equals("")) {
             deviceId = createUniqueID();
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("device_id", deviceId);
@@ -53,10 +55,14 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
                 R.id.navigation_installedApp)
                 .build();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        // Initialize the NavController
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+        // Set the NavController on the navigation host fragment
+        navController.setNavigatorProvider(new NavigatorProvider());
+
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
 
     }
 
