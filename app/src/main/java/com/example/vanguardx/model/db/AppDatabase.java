@@ -24,6 +24,7 @@ import java.util.Objects;
 import java.util.SortedMap;
 
 
+/** @noinspection ALL*/
 @Database(entities = {AppUsageEntity.class, InstalledAppEntity.class},version = 1,exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String TAG = "AppDatabase";
@@ -52,6 +53,7 @@ public abstract class AppDatabase extends RoomDatabase {
             new InitialDataTask(instance).execute();
         }
     };
+
 
     private static class InitialDataTask extends AsyncTask<Void,Void,Void>{
         private AppUsageDao appUsageDao;
