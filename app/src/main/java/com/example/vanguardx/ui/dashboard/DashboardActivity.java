@@ -12,6 +12,7 @@ import com.example.vanguardx.ui.installedapp.InstalledAppFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.NavigatorProvider;
@@ -37,6 +38,10 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        // Set the Toolbar as the ActionBar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         deviceId = sharedPreferences.getString("device_id", "");
         if (deviceId.equals("")) {
@@ -47,8 +52,6 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
         }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home,
                 R.id.navigation_appusagestats,
@@ -58,13 +61,10 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
         // Initialize the NavController
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
-        // Set the NavController on the navigation host fragment
-        navController.setNavigatorProvider(new NavigatorProvider());
-
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
     }
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {
