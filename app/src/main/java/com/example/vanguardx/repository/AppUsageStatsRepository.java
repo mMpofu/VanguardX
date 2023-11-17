@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.SortedMap;
 
+/** @noinspection ALL*/
 public class AppUsageStatsRepository {
     private static final String TAG = "AppUsageStatsRepository";
 
