@@ -30,16 +30,18 @@ public class InstalledAppAdaptor extends RecyclerView.Adapter<InstalledAppAdapto
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         InstalledAppEntity installedAppEntity = appList.get(position);
-        holder.rvAppInstalledViewBinding.setInstalledAppProperty(installedAppEntity);
-
+        if (installedAppEntity != null) {
+            holder.rvAppInstalledViewBinding.setInstalledAppProperty(installedAppEntity);
+        }
     }
+
 
     @Override
     public int getItemCount() {
         return appList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         private RvAppInstalledViewBinding rvAppInstalledViewBinding;
 
         public ViewHolder(@NonNull RvAppInstalledViewBinding rvAppInstalledViewBinding) {
