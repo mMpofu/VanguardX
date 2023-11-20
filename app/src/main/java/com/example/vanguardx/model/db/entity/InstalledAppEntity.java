@@ -9,6 +9,7 @@ import androidx.room.PrimaryKey;
 
 import java.util.Comparator;
 
+/** @noinspection ALL*/
 @Entity(tableName = "installed_app")
 public class InstalledAppEntity  {
     @ColumnInfo(name = "id")
