@@ -45,21 +45,18 @@ public class InstalledAppAdaptor extends RecyclerView.Adapter<InstalledAppAdapto
         if (installedAppEntity != null) {
             holder.rvAppInstalledViewBinding.setInstalledAppProperty(installedAppEntity);
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String packageName = installedAppEntity.getPackageName();
-                    String activityName = "com.example.app.MainActivity"; // Replace with actual activity name
+            holder.itemView.setOnClickListener(v -> {
+                String packageName = installedAppEntity.getPackageName();
+                String activityName = "com.example.vanguardx.SettingsActivity"; // Replace with actual activity name
 
-                    if (isAppEnabled(packageName, activityName)) {
-                        AppUtils.disableApp(context, packageName, activityName);
-                    } else {
-                        AppUtils.enableApp(context, packageName, activityName);
-                    }
-
-                    // Update the UI
-                    notifyItemChanged(holder.getAdapterPosition());
+                if (isAppEnabled(packageName, activityName)) {
+                    AppUtils.disableApp(context, packageName, activityName);
+                } else {
+                    AppUtils.enableApp(context, packageName, activityName);
                 }
+
+                // Update the UI
+                notifyItemChanged(holder.getAdapterPosition());
             });
         }
     }
