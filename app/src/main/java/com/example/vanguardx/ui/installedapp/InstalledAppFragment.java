@@ -41,13 +41,11 @@ public class InstalledAppFragment extends Fragment {
     private static PackageManagerHelper packageManagerHelper;
     private static ProgressBar progressBar;
 
-
     private OnFragmentInteractionListener mListener;
 
     public InstalledAppFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,21 +62,20 @@ public class InstalledAppFragment extends Fragment {
         progressBar = fragmentInstalledAppBinding.progressBar;
         recyclerView = fragmentInstalledAppBinding.rvInstallApp;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        installedAppAdaptor = new InstalledAppAdaptor();
+        installedAppAdaptor = new InstalledAppAdaptor(getActivity()); // Pass the context
         recyclerView.setAdapter(installedAppAdaptor);
-        //
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String deviceId = sharedPreferences.getString("device_id","");
+        String deviceId = sharedPreferences.getString("device_id", "");
         packageManagerHelper = new PackageManagerHelper(getActivity());
         packageManagerHelper.setDeviceId(deviceId);
 
         /*
-        load list only if its empty
+        load list only if it's empty
          */
-        if (appList.size() == 0){
+        if (appList.size() == 0) {
             new GetInstalledAppTask().execute();
-        }
-        else {
+        } else {
             installedAppAdaptor.setAppList(appList);
             progressBar.setVisibility(View.GONE);
         }
@@ -103,17 +100,16 @@ public class InstalledAppFragment extends Fragment {
         mListener = null;
     }
 
-
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
     }
 
-    private static class GetInstalledAppTask extends AsyncTask<Void,Void,Void>{
+    private static class GetInstalledAppTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
             ArrayList<InstalledAppProperty> list = packageManagerHelper.getInstalledAppInfo();
-            for (int i = 0 ; i < list.size() ; i++){
+            for (int i = 0; i < list.size(); i++) {
                 InstalledAppEntity installedAppEntity = new InstalledAppEntity();
                 InstalledAppProperty property = list.get(i);
                 installedAppEntity.setAppName(property.getAppName());
@@ -122,9 +118,8 @@ public class InstalledAppFragment extends Fragment {
                 installedAppEntity.setVersionCode(property.getVersionCode());
                 installedAppEntity.setAppIcon(property.getAppIcon());
                 appList.add(installedAppEntity);
-
             }
-            Collections.sort(appList,InstalledAppEntity.appNameComparator);
+            Collections.sort(appList, InstalledAppEntity.appNameComparator);
             return null;
         }
 
@@ -133,8 +128,6 @@ public class InstalledAppFragment extends Fragment {
             super.onPostExecute(aVoid);
             installedAppAdaptor.setAppList(appList);
             progressBar.setVisibility(View.GONE);
-            //installedAppAdaptor.notifyDataSetChanged();
-
         }
     }
 }
