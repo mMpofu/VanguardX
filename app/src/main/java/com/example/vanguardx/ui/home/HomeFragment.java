@@ -66,7 +66,44 @@ public class HomeFragment extends Fragment {
 
     // Observe and update UI based on usage statistics
     private void getUsageStats() {
-        // ... (existing code for observing usage stats)
+        homeViewModel.getSec().observe(getViewLifecycleOwner(), new Observer<Double>() {
+            @Override
+            public void onChanged(Double aDouble) {
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundSec(Double.parseDouble(data));
+                // fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
+                Log.e(TAG, "onChanged Sec: " + appUsageEntity.getTotalAppInForegroundSec());
+            }
+        });
+
+        homeViewModel.getMin().observe(getViewLifecycleOwner(), new Observer<Double>() {
+            @Override
+            public void onChanged(Double aDouble) {
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundMin(Double.parseDouble(data));
+                // fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
+                Log.e(TAG, "onChanged Min: " + aDouble);
+            }
+        });
+
+        homeViewModel.getHr().observe(getViewLifecycleOwner(), new Observer<Double>() {
+            @Override
+            public void onChanged(Double aDouble) {
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundHr(Double.parseDouble(data));
+                // fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
+                Log.e(TAG, "onChanged Hr: " + aDouble);
+            }
+        });
+
+        homeViewModel.getAppIcon().observe(getViewLifecycleOwner(), new Observer<Drawable>() {
+            @Override
+            public void onChanged(Drawable drawable) {
+                Log.e(TAG, "onChanged: App Icon");
+                appUsageEntity.setApp_icon(drawable);
+                fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
+            }
+        });
     }
 
     // Check and request usage stats permission
@@ -144,3 +181,4 @@ public class HomeFragment extends Fragment {
         }
     }
 }
+
